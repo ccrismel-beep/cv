@@ -1,1 +1,695 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Christophe PAOLINO - CV Technicien Informatique</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CV de Christophe Paolino, technicien informatique expérimenté, administration systèmes et réseaux, home lab, IA et automatisation.">
+  <style>
+    :root {
+      --bg-body: #0f172a;
+      --bg-card: #020617;
+      --bg-section: #020617;
+      --primary: #3b82f6;
+      --primary-soft: rgba(59,130,246,0.12);
+      --accent: #22c55e;
+      --text-main: #e5e7eb;
+      --text-soft: #9ca3af;
+      --border-soft: rgba(148,163,184,0.35);
+      --chip-bg: rgba(15,23,42,0.7);
+      --shadow-soft: 0 24px 60px rgba(15,23,42,0.9);
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+    }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 40%, #000 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 1120px;
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.12), transparent 55%), radial-gradient(circle at top right, rgba(59,130,246,0.18), transparent 65%), rgba(15,23,42,0.98);
+      border-radius: 28px;
+      border: 1px solid rgba(148,163,184,0.35);
+      box-shadow: var(--shadow-soft);
+      padding: 28px 28px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at -10% -20%, rgba(59,130,246,0.6), transparent 45%), radial-gradient(circle at 110% -10%, rgba(34,197,94,0.5), transparent 45%);
+      mix-blend-mode: soft-light;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .page-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr);
+      gap: 28px;
+    }
+
+    @media (max-width: 900px) {
+      body {
+        padding: 16px;
+      }
+      .page {
+        padding: 18px 16px 24px;
+        border-radius: 18px;
+      }
+      .page-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* Header top bar */
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .id-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .name {
+      font-size: 2.1rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .name span {
+      color: var(--primary);
+    }
+
+    .role {
+      font-size: 1.05rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      position: relative;
+      border-radius: var(--radius-pill);
+      padding: 9px 18px;
+      font-size: .9rem;
+      border: 1px solid rgba(148,163,184,0.5);
+      background: rgba(15,23,42,0.9);
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all .15s ease-out;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .btn span.icon {
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      border-color: var(--primary);
+      background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(37,99,235,0.4));
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 30px rgba(15,23,42,0.9);
+      border-color: rgba(148,163,184,0.9);
+    }
+
+    .btn-primary:hover {
+      border-color: rgba(59,130,246,0.9);
+      background: linear-gradient(135deg, rgba(59,130,246,0.25), rgba(37,99,235,0.55));
+    }
+
+    /* Left column */
+
+    .sidebar {
+      background: linear-gradient(160deg, rgba(15,23,42,0.92), rgba(15,23,42,0.98));
+      border-radius: 22px;
+      padding: 20px 18px 18px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 18px 50px rgba(15,23,42,0.9);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .badge-role {
+      align-self: flex-start;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(34,197,94,0.12);
+      border: 1px solid rgba(34,197,94,0.5);
+      color: var(--accent);
+      font-size: .7rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .block {
+      padding: 12px 10px 8px;
+      border-radius: 16px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(30,64,175,0.4);
+    }
+
+    .block-title {
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+    }
+
+    .contact-list,
+    .tag-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: .86rem;
+    }
+
+    .contact-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+      color: var(--text-main);
+      word-break: break-word;
+    }
+
+    .contact-label {
+      font-size: .8rem;
+      color: var(--text-soft);
+      min-width: 44px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148,163,184,0.5);
+      background: var(--chip-bg);
+      color: var(--text-main);
+      font-size: .76rem;
+      margin: 3px 3px 0 0;
+      white-space: nowrap;
+    }
+
+    .tag-list li {
+      margin-bottom: 4px;
+      color: var(--text-main);
+    }
+
+    .tag-list span.label {
+      color: var(--text-soft);
+      font-size: .8rem;
+    }
+
+    .metric-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+      font-size: .86rem;
+    }
+
+    .metric-pill span.icon {
+      font-size: 1rem;
+    }
+
+    /* Right column */
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .section {
+      background: rgba(15,23,42,0.9);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+      border: 1px solid rgba(30,64,175,0.4);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: .9rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .section-badge {
+      font-size: .7rem;
+      color: var(--primary);
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(59,130,246,0.5);
+      background: var(--primary-soft);
+    }
+
+    .section-body {
+      font-size: .9rem;
+      line-height: 1.5;
+      color: var(--text-main);
+    }
+
+    .muted {
+      color: var(--text-soft);
+    }
+
+    .profile-highlight {
+      font-size: .95rem;
+      line-height: 1.6;
+    }
+
+    .key-figures-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .stat-card {
+      border-radius: 14px;
+      padding: 10px 10px;
+      background: radial-gradient(circle at top left, rgba(59,130,246,0.18), transparent 65%);
+      border: 1px solid rgba(59,130,246,0.45);
+      font-size: .86rem;
+    }
+
+    .stat-label {
+      font-size: .78rem;
+      color: var(--text-soft);
+    }
+
+    .stat-value {
+      font-size: .9rem;
+      margin-top: 3px;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .job {
+      padding: 10px 10px 9px;
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: rgba(15,23,42,0.9);
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 4px;
+      font-size: .86rem;
+    }
+
+    .job-title {
+      font-weight: 600;
+    }
+
+    .job-company {
+      color: var(--text-soft);
+      font-size: .82rem;
+    }
+
+    .job-dates {
+      color: var(--text-soft);
+      font-size: .8rem;
+      white-space: nowrap;
+    }
+
+    .job-list {
+      margin: 0;
+      padding-left: 16px;
+      font-size: .86rem;
+      color: var(--text-main);
+    }
+
+    .job-list li {
+      margin-bottom: 3px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .pill {
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.55);
+      background: rgba(15,23,42,0.9);
+      font-size: .78rem;
+      color: var(--text-soft);
+    }
+
+    .two-cols {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 800px) {
+      .two-cols {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* Print */
+
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+      .page {
+        box-shadow: none;
+        border-radius: 0;
+        border: none;
+      }
+      .btn,
+      .cta-buttons {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="page-inner">
+
+      <!-- Colonne gauche -->
+      <aside class="sidebar">
+        <div class="badge-role">Technicien informatique & home lab</div>
+
+        <section class="block">
+          <h2 class="block-title">Contact</h2>
+          <ul class="contact-list">
+            <li>
+              <span class="contact-label">Email</span>
+              <span>christophe@cpaolino.fr</span>
+            </li>
+            <li>
+              <span class="contact-label">Tél.</span>
+              <span>06 20 61 85 00</span>
+            </li>
+            <li>
+              <span class="contact-label">Localisation</span>
+              <span>Landes (40), France</span>
+            </li>
+            <li>
+              <span class="contact-label">Web</span>
+              <span>www.cpaolino.fr</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="block">
+          <h2 class="block-title">Langues</h2>
+          <ul class="tag-list">
+            <li><span class="label">Français</span> — Natif</li>
+            <li><span class="label">Anglais</span> — Professionnel (exp. UK, Suisse, Jersey)</li>
+          </ul>
+        </section>
+
+        <section class="block">
+          <h2 class="block-title">Qualités</h2>
+          <div>
+            <span class="chip">Empathie & écoute utilisateurs</span>
+            <span class="chip">Autonome & autodidacte</span>
+            <span class="chip">Curiosité & veille permanente</span>
+            <span class="chip">Résolution de problèmes</span>
+            <span class="chip">Esprit d'équipe</span>
+            <span class="chip">Adaptabilité & polyvalence</span>
+            <span class="chip">Rigueur & documentation</span>
+          </div>
+        </section>
+
+        <section class="block">
+          <h2 class="block-title">Compétences clés</h2>
+          <ul class="tag-list">
+            <li>
+              <span class="label">Systèmes & réseaux</span><br>
+              Linux (Debian, Pi OS), Windows 7 à 11, macOS (utilisateur), administration réseau, DNS, DHCP, VPN (OpenVPN, Tailscale), Pi‑hole, Unbound.
+            </li>
+            <li>
+              <span class="label">Infrastructure & cloud</span><br>
+              Docker & Docker Compose, NAS Synology (NFS, Samba), sauvegardes rsync, supervision Uptime Kuma.
+            </li>
+            <li>
+              <span class="label">Domotique & IoT</span><br>
+              Home Assistant, ZHA/Zigbee, MQTT, automatisations de présence.
+            </li>
+            <li>
+              <span class="label">Intelligence artificielle</span><br>
+              Ollama (LLM locaux), prompt engineering & RAG, workflows IA avec n8n, IA conversationnelle.
+            </li>
+            <li>
+              <span class="label">Développement</span><br>
+              Python, Flask, Selenium, Bash, HTML/CSS/JavaScript, API REST & scraping.
+            </li>
+          </ul>
+        </section>
+
+        <section class="block">
+          <h2 class="block-title">Formation</h2>
+          <ul class="tag-list">
+            <li><span class="label">2021</span> — HACCP Hygiène Alimentaire, CAP Cuisine (Montagnac).</li>
+            <li><span class="label">2020</span> — BAC niveau 4, Conseiller Relation Client à Distance.</li>
+          </ul>
+        </section>
+
+        <section class="block">
+          <h2 class="block-title">Centres d'intérêt</h2>
+          <ul class="tag-list">
+            <li>IA & veille technologique, communautés open source.</li>
+            <li>Domotique & self‑hosting, philosophie privacy‑first.</li>
+            <li>Cuisine gastronomique, BBQ & fumoir artisanal.</li>
+            <li>Cybersécurité, documentation et sensibilisation.</li>
+          </ul>
+        </section>
+      </aside>
+
+      <!-- Colonne droite -->
+      <section class="main">
+
+        <header class="top-bar">
+          <div class="id-block">
+            <div class="name"><span>Christophe</span> Paolino</div>
+            <div class="role">Technicien informatique · Systèmes · Réseaux · Home lab & IA</div>
+          </div>
+          <div class="cta-buttons">
+            <a class="btn btn-primary" href="assets/Christophe_PAOLINO_CV_ATTRACTIF-2.docx" download>
+              <span class="icon">⬇️</span>
+              <span>Télécharger le CV</span>
+            </a>
+            <button class="btn" type="button" onclick="window.print()">
+              <span class="icon">🖨️</span>
+              <span>Imprimer le CV</span>
+            </button>
+          </div>
+        </header>
+
+        <section class="section">
+          <div class="section-header">
+            <h2 class="section-title">Profil professionnel</h2>
+            <span class="section-badge">25+ ans d’expérience</span>
+          </div>
+          <div class="section-body profile-highlight">
+            Technicien informatique expérimenté avec plus de 25 ans d'expérience en support technique, administration système et réseau. Reconnu pour ton empathie et ta patience auprès des utilisateurs, tu t’investis pleinement dans l’accompagnement et la résolution de leurs problèmes. Passionné par les nouvelles technologies, tu conçois et administres une infrastructure personnelle complète (serveurs Linux, Docker, domotique, IA locale) qui illustre ta capacité à apprendre en continu de manière autonome.
+          </div>
+          <div class="key-figures-grid">
+            <div class="stat-card">
+              <div class="stat-label">Expérience support IT</div>
+              <div class="stat-value">💼 25 ans en environnement Concentrix / Leclerc.</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Périmètre géré</div>
+              <div class="stat-value">🖥️ 5 sociétés gérées simultanément au sein du groupe Leclerc.</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Home lab & services</div>
+              <div class="stat-value">🌐 10+ services auto‑hébergés en production 24/7.</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Projets IA</div>
+              <div class="stat-value">🤖 3 projets IA déployés (LLM local, workflows n8n, application Flask).</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">International</div>
+              <div class="stat-value">🌍 France, UK, Suisse, Monaco, Jersey.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-header">
+            <h2 class="section-title">Parcours professionnel</h2>
+          </div>
+          <div class="section-body timeline">
+
+            <article class="job">
+              <div class="job-header">
+                <div>
+                  <div class="job-title">Adjoint Responsable Informatique</div>
+                  <div class="job-company">Leclerc · Saint‑Pierre‑du‑Mont</div>
+                </div>
+                <div class="job-dates">Août 2023 — Aujourd’hui</div>
+              </div>
+              <ul class="job-list">
+                <li>Gestion informatique de 5 sociétés du groupe : postes, serveurs, réseau.</li>
+                <li>Administration système et réseau, gestion des baies de brassage.</li>
+                <li>Support technique N1/N2 aux utilisateurs avec écoute, empathie et pédagogie.</li>
+                <li>Gestion de la téléphonie, des logiciels métiers, des caisses et périphériques.</li>
+              </ul>
+            </article>
+
+            <article class="job">
+              <div class="job-header">
+                <div>
+                  <div class="job-title">Entrepreneur · Fumoir américain (Smoker)</div>
+                  <div class="job-company">Restauration ambulante BBQ</div>
+                </div>
+                <div class="job-dates">2022 — 2023</div>
+              </div>
+              <ul class="job-list">
+                <li>Création et gestion complète d’une activité de restauration ambulante BBQ.</li>
+                <li>Organisation opérationnelle, gestion de la clientèle et de la qualité produit.</li>
+              </ul>
+            </article>
+
+            <article class="job">
+              <div class="job-header">
+                <div>
+                  <div class="job-title">Technicien Informatique Hotline</div>
+                  <div class="job-company">Concentrix (Stream) · Angers</div>
+                </div>
+                <div class="job-dates">Janvier 2000 — Mai 2021</div>
+              </div>
+              <ul class="job-list">
+                <li>Support technique Orange ADSL & Fibre Optique (niveau 2, EPAC anglais).</li>
+                <li>Support Microsoft Windows (XP, Vista, 7) et matériel Dell / HP, imprimantes jet d’encre et laser.</li>
+                <li>Accueil client, écoute active, troubleshooting et résolution avec pédagogie.</li>
+              </ul>
+            </article>
+
+            <article class="job">
+              <div class="job-header">
+                <div>
+                  <div class="job-title">Carrière Hôtellerie‑Restauration internationale</div>
+                  <div class="job-company">Montreux Palace, Hôtel de Paris, Martinez, etc.</div>
+                </div>
+                <div class="job-dates">1986 — 2000</div>
+              </div>
+              <ul class="job-list">
+                <li>Chef de rang : Montreux Palace (Suisse), Hôtel de Paris (Monaco), Martinez (Cannes).</li>
+                <li>Expérience en Suisse, Royaume‑Uni (Londres, Sheffield), Crans Ambassador, Jersey.</li>
+                <li>Relation client haut de gamme, gestion du stress et environnement multiculturel.</li>
+              </ul>
+            </article>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-header">
+            <h2 class="section-title">Projets personnels & home lab</h2>
+          </div>
+          <div class="section-body two-cols">
+            <div>
+              <p class="muted">Infrastructure auto‑hébergée complète, conçue et administrée par passion :</p>
+              <ul class="job-list">
+                <li>Serveur Raspberry Pi 5 : Pi‑hole + Unbound (DNS récursif), OpenVPN, Tailscale, Samba.</li>
+                <li>Conteneurisation Docker : Home Assistant, Uptime Kuma, n8n (workflows IA).</li>
+                <li>Backup automatisé Pi 5 → Synology via rsync/NFS (cron quotidien).</li>
+                <li>Domotique avancée : Home Assistant avec capteurs ZHA/Zigbee, automatisations de présence.</li>
+              </ul>
+            </div>
+            <div>
+              <ul class="job-list">
+                <li>IA locale : Ollama (Mistral, LLaMA), assistant conversationnel intégré à Home Assistant.</li>
+                <li>Développement : applications Flask/Python, intégration Ollama, scraping API et Selenium.</li>
+                <li>Workflows n8n : bot Telegram IA, intégration Perplexity API, monitoring automatisé.</li>
+                <li>Cybersécurité : conception technique de « Sentinel AI » (sécurité endpoint, détection IA).</li>
+              </ul>
+              <div class="pill-row">
+                <span class="pill">LLM locaux</span>
+                <span class="pill">Automatisation n8n</span>
+                <span class="pill">Home Assistant</span>
+                <span class="pill">Self‑hosting</span>
+                <span class="pill">Monitoring & backup</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </section>
+    </div>
+  </main>
+
+  <script>
+    // (il n’y a rien de plus à faire pour l’instant côté JS, le bouton Imprimer utilise window.print)
+  </script>
+</body>
+</html>
